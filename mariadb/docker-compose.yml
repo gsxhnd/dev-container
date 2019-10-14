@@ -1,0 +1,25 @@
+version: '2'
+
+networks:
+  dipole.tech:
+    external:
+      name: net_dipole
+
+services:
+  sql.dipole.tech:
+    container_name: mariadb.dipole.tech
+    image: mariadb:10.4.7
+    restart: always
+    privileged: true
+    ports:
+      - 3306:3306
+    environment:
+      TIME_ZONE: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+      # - ./mysql/conf.d/my.cnf:/etc/my.cnf
+      - ./data/:/var/lib/mysql
+    networks:
+      dipole.tech:
+        aliases:
+          - mariadb.dipole.tech
