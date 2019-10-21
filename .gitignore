@@ -1,13 +1,32 @@
-.idea
+### normal
+server/
+.idea/
+.vscode/
+istio/
+
+### teamcity
+/teamcity/data
+/teamcity/logs
+
+### etcd
+/etcd/data/
+
+### redis
+/redis/data
+
+### mariadb
+/mariadb/data
+
+### mongodb
+/mongo/data
+
+### register
 /registry/data/
+
+### nginx
 /nginx/ssl/
 /nginx/conf.d/
 /nginx/www/
 /nginx/log/
-.DS_Store
-/istio/
-/etcd/data/
 
-teamcity/data
-teamcity/logs
-/etcd/data/
+.DS_Store

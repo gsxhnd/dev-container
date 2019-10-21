@@ -1,8 +1,8 @@
 version: '2'
 
 services:
-  nginx:
-    container_name: registry.dipole.tech
+  registry:
+    container_name: registry
     restart: always
     image: registry:2.7.1
     ports:

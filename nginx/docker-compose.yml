@@ -10,7 +10,6 @@ services:
       - 443:443
     volumes:
       - ./conf.d:/etc/nginx/conf.d
-
       - ./log:/var/log/nginx
       - ./www:/var/www
       - ./ssl:/etc/nginx/ssl
