@@ -25,10 +25,10 @@ services:
         hard: 65536
     ports:
       - "9200:9200"
-    volumes:
-        - ./node1/data:/usr/share/elasticsearch/data:rw
-        - ./node1/conf/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
-        - ./node1/logs:/user/share/elasticsearch/logs:rw    
+    # volumes:
+    #     - ./node1/data:/usr/share/elasticsearch/data:rw
+    #     - ./node1/conf/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    #     - ./node1/logs:/user/share/elasticsearch/logs:rw    
     networks: 
       dipole.tech:
         aliases:
