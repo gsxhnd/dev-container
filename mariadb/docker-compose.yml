@@ -1,13 +1,8 @@
 version: '2'
 
-networks:
-  dipole.tech:
-    external:
-      name: net_dipole
-
 services:
   sql.dipole.tech:
-    container_name: mariadb.dipole.tech
+    container_name: mariadb01
     image: mariadb:10.4.7
     restart: always
     privileged: true
@@ -19,7 +14,3 @@ services:
     volumes:
       # - ./mysql/conf.d/my.cnf:/etc/my.cnf
       - ./data/:/var/lib/mysql
-    networks:
-      dipole.tech:
-        aliases:
-          - mariadb.dipole.tech
