@@ -29,4 +29,7 @@ istio/
 /nginx/www/
 /nginx/log/
 
+### jekins
+/jekins/data/
+
 .DS_Store
