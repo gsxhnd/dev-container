@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   nsqlookupd:
@@ -36,6 +36,6 @@ services:
     command: /nsqadmin --lookupd-http-address=nsqlookupd:4161
     hostname: nsqadmin
     depends_on:
-      - nsqlookupd  
+      - nsqlookupd
     ports:
       - 4171:4171

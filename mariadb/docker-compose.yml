@@ -3,9 +3,9 @@ version: "3"
 services:
   sql.dipole.tech:
     container_name: mariadb01
-    image: mariadb:10.4.7
+    image: mariadb:10.4.11
     restart: always
-    privileged: true
+    privileged: false
     ports:
       - 3306:3306
     environment:

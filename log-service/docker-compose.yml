@@ -23,7 +23,7 @@ services:
     # volumes:
     #     - ./node1/data:/usr/share/elasticsearch/data:rw
     #     - ./node1/conf/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
-    #     - ./node1/logs:/user/share/elasticsearch/logs:rw    
+    #     - ./node1/logs:/user/share/elasticsearch/logs:rw
   kibana:
     container_name: kibana01
     image: kibana:7.3.1
