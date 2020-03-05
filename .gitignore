@@ -1,5 +1,4 @@
 ### normal
-server/
 .idea/
 .vscode/
 istio/
@@ -34,7 +33,6 @@ istio/
 
 frp/client/frpc
 frp/client/frpc.ini
-frp/server/frps
 frp/frpc.log
 frp/conf
 
