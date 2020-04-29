@@ -31,9 +31,15 @@ istio/
 ### jekins
 /jekins/data/
 
+### frp
 frp/client/frpc
 frp/client/frpc.ini
 frp/frpc.log
 frp/conf
+frp/log
 
 .DS_Store
+
+### es
+es/esdata*
+es/logs
