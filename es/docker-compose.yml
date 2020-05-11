@@ -2,11 +2,11 @@ version: "3"
 services:
   elasticsearch:
     image: elasticsearch:7.6.2
-    container_name: elasticsearch1
+    container_name: es01
     environment:
-      - node.name=elasticsearch1
+      - node.name=es01
       - cluster.name=docker-cluster
-      - cluster.initial_master_nodes=elasticsearch1
+      - cluster.initial_master_nodes=es01
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms256M -Xmx256M"
       - http.cors.enabled=true
@@ -37,9 +37,9 @@ services:
         delay: 5s
         max_attempts: 3
         window: 10s
-    volumes:
-      - ./logs/es1:/var/log
-      - ./esdata1:/usr/share/elasticsearch/data
+    # volumes:
+    #   - ./logs/es1:/var/log
+    #   - ./esdata1:/usr/share/elasticsearch/data
     networks:
       - elastic
       - ingress
@@ -48,14 +48,14 @@ services:
       - 9300:9300
   elasticsearch2:
     image: elasticsearch:7.6.2
-    container_name: elasticsearch2
+    container_name: es02
     environment:
-      - node.name=elasticsearch2
+      - node.name=es02
       - cluster.name=docker-cluster
-      - cluster.initial_master_nodes=elasticsearch1
+      - cluster.initial_master_nodes=es01
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms256M -Xmx256M"
-      - "discovery.zen.ping.unicast.hosts=elasticsearch1"
+      - "discovery.zen.ping.unicast.hosts=es01"
       - http.cors.enabled=true
       - http.cors.allow-origin=*
       - network.host=_eth0_
@@ -84,9 +84,9 @@ services:
         delay: 5s
         max_attempts: 3
         window: 10s
-    volumes:
-      - ./logs/es2:/var/log
-      - ./esdata2:/usr/share/elasticsearch/data
+    # volumes:
+    #   - ./logs/es2:/var/log
+    #   - ./esdata2:/usr/share/elasticsearch/data
     networks:
       - elastic
       - ingress
@@ -94,14 +94,14 @@ services:
       - 9201:9200
   elasticsearch3:
     image: elasticsearch:7.6.2
-    container_name: elasticsearch3
+    container_name: es03
     environment:
-      - node.name=elasticsearch3
+      - node.name=es03
       - cluster.name=docker-cluster
-      - cluster.initial_master_nodes=elasticsearch1
+      - cluster.initial_master_nodes=es01
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms256M -Xmx256M"
-      - "discovery.zen.ping.unicast.hosts=elasticsearch1"
+      - "discovery.zen.ping.unicast.hosts=es01"
       - http.cors.enabled=true
       - http.cors.allow-origin=*
       - network.host=_eth0_
@@ -130,9 +130,9 @@ services:
         delay: 5s
         max_attempts: 3
         window: 10s
-    volumes:
-      - ./logs/es3:/var/log
-      - ./esdata3:/usr/share/elasticsearch/data
+    # volumes:
+    #   - ./logs/es3:/var/log
+    #   - ./esdata3:/usr/share/elasticsearch/data
     networks:
       - elastic
       - ingress
@@ -146,8 +146,8 @@ services:
       ELASTICSEARCH_URL: http://elasticsearch1:9200/
     ports:
       - 5601:5601
-    volumes:
-      - ./logs/kibana:/var/log
+    # volumes:
+    #   - ./logs/kibana:/var/log
     ulimits:
       nproc: 65535
       memlock:
@@ -175,6 +175,12 @@ services:
     networks:
       - elastic
       - ingress
+
+networks:
+  elastic:
+  ingress:
+
+
 #   auditbeat:
 #     image: docker.elastic.co/beats/auditbeat:7.6.2
 #     command: auditbeat -e -strict.perms=false
