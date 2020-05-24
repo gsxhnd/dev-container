@@ -1,8 +1,8 @@
 version: "3"
 
 services:
-  sql.dipole.tech:
-    container_name: mariadb01
+  mariadb:
+    container_name: mariadb
     image: mariadb:10.4.11
     restart: always
     privileged: false
