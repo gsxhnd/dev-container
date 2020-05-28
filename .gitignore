@@ -3,10 +3,6 @@
 .vscode/
 istio/
 
-### teamcity
-/teamcity/data
-/teamcity/logs
-
 ### etcd
 /etcd/data/
 
@@ -15,12 +11,6 @@ istio/
 
 ### mariadb
 /mariadb/data
-
-### mongodb
-/mongo/data
-
-### register
-/registry/data/
 
 ### nginx
 /nginx/ssl/
