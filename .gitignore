@@ -2,34 +2,4 @@
 .idea/
 .vscode/
 istio/
-
-### etcd
-/etcd/data/
-
-### redis
-/redis/data
-
-### mariadb
-/mariadb/data
-
-### nginx
-/nginx/ssl/
-/nginx/conf.d/
-/nginx/www/
-/nginx/log/
-
-### jekins
-/jekins/data/
-
-### frp
-frp/client/frpc
-frp/client/frpc.ini
-frp/frpc.log
-frp/conf
-frp/log
-
 .DS_Store
-
-### es
-es/esdata*
-es/logs
