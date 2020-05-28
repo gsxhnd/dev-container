@@ -1,15 +1,16 @@
 version: "3"
 
 services:
-  mongodb01:
-    container_name: mongodb01
+  mongodb-01:
+    container_name: mongodb-01
     image: mongo:4.2.0
     restart: always
     ports:
       - "27017:27017"
+    command: "mongod --config /etc/mongo.yaml "
     volumes:
-      - ./data/mongodata/db:/data/db
-      # - "/data/mongodata/mongo.conf:/etc/mongo.conf"
+      - "./mongodata/db:/data/db"
+      - "./mongodata/mongo.yaml:/etc/mongo.yaml"
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: admin
