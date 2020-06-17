@@ -7,10 +7,10 @@ services:
     restart: always
     ports:
       - "27017:27017"
-    command: "mongod --config /etc/mongo.yaml "
+    command: "mongod -f /etc/mongo/mongo.yml"
     volumes:
       - "./mongodata/db:/data/db"
-      - "./mongodata/mongo.yaml:/etc/mongo.yaml"
+      - "./mongodata/conf:/etc/mongo"
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: admin
