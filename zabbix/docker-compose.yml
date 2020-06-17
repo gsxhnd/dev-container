@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  zabbix-web:
+    image: zabbix/zabbix-web-nginx-mysql:alpine-5.0.1
+    container_name: zabbix-web
+    environment:
+      - DB_SERVER_HOST=mariadb
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=password
+      - ZBX_SERVER_HOST=zabbix-server
+    ports:
+      - "8088:80"
+    links:
+      - zabbix-server
+  zabbix-server:
+    image: zabbix/zabbix-server-mysql:alpine-5.0.1
+    container_name: zabbix-server
+    environment:
+      - DB_SERVER_HOST=mariadb
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=password
+    ports:
+      - "10051:10051"
+networks:
+  default:
+    external:
+    name: gsxhnd.xyz
