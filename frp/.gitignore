@@ -1,5 +1,4 @@
-/client/frpc
-/client/frpc.ini
-/frpc.log
+/client/
+/server/frps
 /conf
 /log

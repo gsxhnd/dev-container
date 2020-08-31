@@ -2,7 +2,7 @@ FROM alpine:3.10.2
 LABEL MAINTAINER = "gsxhnd@gmail.com"
 
 ENV TZ=Asia/Shanghai
-ENV FRP_VERSION 0.31.2
+ENV FRP_VERSION 0.33.0
 
 RUN mkdir /frps && mkdir /frps/conf
 

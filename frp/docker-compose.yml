@@ -14,12 +14,3 @@ services:
       TIME_ZONE: Asia/Shanghai
     volumes:
       - ./conf:/frps/conf
-  frpc:
-    container_name: frpc
-    image: gsxhnd/frpc:0.31.2
-    restart: always
-    command: "./frpc -c /frpc/conf/frpc.ini"
-    environment:
-      TIME_ZONE: Asia/Shanghai
-    volumes:
-      - ./conf:/frpc/conf
