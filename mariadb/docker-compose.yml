@@ -3,7 +3,7 @@ version: "3"
 services:
   mariadb:
     container_name: mariadb
-    image: mariadb:10.4.11
+    image: mariadb:10.5.9
     restart: always
     privileged: false
     ports:
