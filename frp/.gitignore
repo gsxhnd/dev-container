@@ -3,3 +3,5 @@
 /conf
 /log
 /server/frps
+
+frps/frps
