@@ -1,1 +1,0 @@
-git clone git@github.com:AliyunContainerService/k8s-for-docker-desktop.git
