@@ -1,4 +1,4 @@
-name: BuildImage
+name: BuildBaseImage
 
 on:
   push:
