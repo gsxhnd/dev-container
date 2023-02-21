@@ -1,0 +1,5 @@
+FROM gsxhnd/openwrt:ubuntu22.10-base
+
+USER openwrt
+WORKDIR /home/openwrt/openwrt
+RUN make -j$(nproc) V=s
