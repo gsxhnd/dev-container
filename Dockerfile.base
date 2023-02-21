@@ -17,6 +17,6 @@ RUN cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 
 WORKDIR /home/openwrt
 RUN git clone https://git.openwrt.org/openwrt/openwrt.git && cd openwrt && git pull && git checkout openwrt-22.03
-RUN wget https://downloads.openwrt.org/releases/22.03.3/targets/x86/64/config.buildinfo -O .config
-RUN ./scripts/feeds update -a
-RUN ./scripts/feeds install -a
+RUN cd openwrt && wget https://downloads.openwrt.org/releases/22.03.3/targets/x86/64/config.buildinfo -O .config
+RUN cd openwrt && ./scripts/feeds update -a
+RUN cd openwrt && ./scripts/feeds install -a
