@@ -1,4 +1,4 @@
-name: BuildBaseImage
+name: OpenWrtBuildAndCompile
 
 on:
   push:
@@ -8,14 +8,14 @@ on:
 
 jobs:
   BuildImage:
-    name: BuildImage
+    name: BuildBaseImage
     runs-on: ubuntu-latest
 
     steps:
       - name: Check out code into the Go module directory
         uses: actions/checkout@v3
       - name: Build Base Image
-        run: "docker build -f Dockerfile.base -t gsxhnd/openwrt:ubuntu22.10-base ."
+        run: "docker build -f Dockerfile.base -t gsxhnd/openwrt:22.03-ubuntu22.10-base ."
 
       - name: Login to Docker Hub
         uses: docker/login-action@v2
@@ -25,14 +25,14 @@ jobs:
 
       - name: Build and Push
         run: docker push gsxhnd/openwrt:ubuntu22.10-base
-  ComplieImage:
-    name: Complie
+  CompileOpenWrt:
+    name: CompileOpenWrt
     runs-on: ubuntu-latest
     steps:
       - name: Check out code into the Go module directory
         uses: actions/checkout@v3
       - name: Build Base Image
-        run: "docker build -f Dockerfile.dev -t gsxhnd/openwrt:22.03-ubuntu22.10 ."
+        run: "docker build -f Dockerfile.dev -t gsxhnd/openwrt:22.03-ubuntu22.10-compile ."
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:

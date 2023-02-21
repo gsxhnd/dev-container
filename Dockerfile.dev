@@ -1,4 +1,4 @@
-FROM gsxhnd/openwrt:ubuntu22.10-base
+FROM gsxhnd/openwrt:22.03-ubuntu22.10-base
 
 USER openwrt
 WORKDIR /home/openwrt/openwrt
