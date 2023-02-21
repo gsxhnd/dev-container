@@ -12,7 +12,7 @@ RUN useradd -c "OpenWrt Builder" -m -d /home/build -G sudo -s /bin/bash openwrt
 USER openwrt
 RUN git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 RUN cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-RUN chsh -s $(which zsh)
+RUN sudo chsh -s $(which zsh)
 
 WORKDIR /app
 RUN git clone https://git.openwrt.org/openwrt/openwrt.git && cd openwrt && git pull && git checkout openwrt-22.03
