@@ -3,5 +3,5 @@
 ## Build Docker Environment
 
 ```shell
-docker build -f Dockerfile.base -t ubuntu:22.10-zsh .
+docker build -f Dockerfile.base -t openwrt:ubuntu-22.10-base .
 ```
