@@ -3,3 +3,6 @@ FROM gsxhnd/openwrt:22.03-ubuntu22.10-base
 USER openwrt
 WORKDIR /home/openwrt/openwrt
 RUN make -j$(nproc) V=s
+
+RUN echo "Compile completed.\n"
+RUN ls -al
