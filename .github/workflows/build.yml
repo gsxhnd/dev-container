@@ -8,7 +8,7 @@ on:
 
 jobs:
   BuildAndCompile:
-    name: BuildBaseImage
+    name: BuildAndCompile
     runs-on: ubuntu-latest
 
     steps:
