@@ -1,0 +1,10 @@
+FROM gsxhnd/openwrt:ubuntu22.10-base
+
+USER openwrt
+WORKDIR /home/openwrt/openwrt
+
+RUN git pull && git checkout openwrt-22.03
+RUN wget https://downloads.openwrt.org/releases/22.03.3/targets/x86/64/config.buildinfo -O .config
+RUN ./scripts/feeds update -a
+RUN ./scripts/feeds install -a
+RUN make -j1 V=s
