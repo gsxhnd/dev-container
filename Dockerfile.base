@@ -19,8 +19,7 @@ WORKDIR /home/openwrt
 RUN git clone https://git.openwrt.org/openwrt/openwrt.git && cd openwrt && git pull && git checkout openwrt-22.03
 
 WORKDIR /home/openwrt/openwrt
-# RUN wget https://downloads.openwrt.org/releases/22.03.3/targets/x86/64/config.buildinfo -O .config
-COPY openwrt22.03.config .config
+RUN wget https://downloads.openwrt.org/releases/22.03.3/targets/x86/64/config.buildinfo -O .config
 RUN ./scripts/feeds update -a
 RUN ./scripts/feeds install -a
 RUN make -j$(nproc) download V=s
