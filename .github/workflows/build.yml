@@ -24,8 +24,3 @@ jobs:
         run: "docker build -f Dockerfile.base -t gsxhnd/openwrt:22.03-ubuntu22.10-base ."
       - name: Push Base Image
         run: docker push gsxhnd/openwrt:22.03-ubuntu22.10-base
-
-      - name: Compile OpenWrt
-        run: "docker build -f Dockerfile.dev -t gsxhnd/openwrt:22.03-ubuntu22.10-compile ."
-      - name: Push Compile Image
-        run: docker push gsxhnd/openwrt:22.03-ubuntu22.10-compile
