@@ -22,5 +22,5 @@ WORKDIR /home/openwrt/openwrt
 RUN wget https://downloads.openwrt.org/releases/22.03.3/targets/x86/64/config.buildinfo -O .config
 RUN ./scripts/feeds update -a
 RUN ./scripts/feeds install -a
-RUN make -j1 download V=s
+RUN make download V=s
 RUN ls -al
