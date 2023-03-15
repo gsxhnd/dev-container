@@ -1,7 +1,7 @@
 FROM ubuntu:22.10
 
 
-RUN apt update && apt install -y curl zsh git sudo
+RUN apt update && apt install -y curl zsh git sudo build-essential
 
 RUN useradd -c "Developer" -m -d /home/dev -G sudo -s /usr/bin/zsh dev
 RUN echo 'dev ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
