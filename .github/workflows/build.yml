@@ -1,18 +1,16 @@
-name: OpenWrtBuildAndCompile
+name: OpenWrtBuildDevContainer
 
 on:
   push:
     paths:
       - 'Dockerfile.base'
-      - 'Dockerfile.dev'
-
 jobs:
-  BuildAndCompile:
-    name: BuildAndCompile
+  Build:
+    name: BuildDevContainer
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code into the Go module directory
+      - name: Check out code
         uses: actions/checkout@v3
 
       - name: Login to Docker Hub
