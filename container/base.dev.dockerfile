@@ -11,7 +11,7 @@ RUN echo 'root:root' | chpasswd
 RUN echo 'dev:dev' | chpasswd
 
 USER linuxbrew
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 USER dev
 ENV PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"
