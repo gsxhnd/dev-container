@@ -1,7 +1,7 @@
 FROM gsxhnd/dev-container:base-ubuntu
 
 USER dev
-SHELL ["/bin/zsh", "-c"]
+ENV PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"
 WORKDIR /workspace
 RUN brew install python@3.10 pipenv node yarn pnpm
 RUN brew install go protobuf protoc-gen-go protoc-gen-go-grpc
