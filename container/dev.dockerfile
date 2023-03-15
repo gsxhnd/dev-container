@@ -1,4 +1,4 @@
-FROM gsxhnd/dev-container:llvm-ubuntu
+FROM gsxhnd/dev-container:base-ubuntu
 
 USER dev
 WORKDIR /workspace
