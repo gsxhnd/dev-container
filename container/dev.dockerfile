@@ -10,4 +10,4 @@ RUN brew install bottom procs htop
 RUN brew install fzf lazygit onefetch tree bat erdtree httpie jq
 RUN brew install kubernetes-cli k9s
 RUN brew link python@3.10
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
