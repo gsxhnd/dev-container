@@ -13,7 +13,9 @@ RUN echo 'dev:dev' | chpasswd
 USER linuxbrew
 RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+
 USER dev
 ENV PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"
 RUN git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 RUN cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+RUN brew --version

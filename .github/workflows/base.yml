@@ -21,4 +21,4 @@ jobs:
       - name: Build Base Dev Image
         run: "docker build -f container/base.dev.dockerfile -t gsxhnd/dev-container:base-ubuntu ."
       - name: Push Base Dev Image
-        run: docker push gsxhnd/openwrt:22.03-ubuntu22.10-base
+        run: docker push gsxhnd/dev-container:base-ubuntu
