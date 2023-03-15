@@ -24,4 +24,4 @@ jobs:
       - name: Build Dev Image
         run: "docker build -f container/dev.dockerfile -t gsxhnd/dev-container:ubuntu ."
       - name: Push Image
-        run: docker push gsxhnd/dev-container:base-ubuntu gsxhnd/dev-container:ubuntu
+        run: docker push gsxhnd/dev-container:base-ubuntu && docker push gsxhnd/dev-container:ubuntu
