@@ -4,9 +4,10 @@ on:
   push:
     paths:
       - 'container/base.dev.dockerfile'
+      - 'container/dev.dockerfile'
 jobs:
   Build:
-    name: BuildBaseDevConatiner
+    name: BuildDevConatiner
     runs-on: ubuntu-latest
 
     steps:
@@ -20,5 +21,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build Base Dev Image
         run: "docker build -f container/base.dev.dockerfile -t gsxhnd/dev-container:base-ubuntu ."
-      - name: Push Base Dev Image
-        run: docker push gsxhnd/dev-container:base-ubuntu
+      - name: Build Dev Image
+        run: "docker build -f container/dev.dockerfile -t gsxhnd/dev-container:ubuntu ."
+      - name: Push Image
+        run: docker push gsxhnd/dev-container:base-ubuntu gsxhnd/dev-container:ubuntu
