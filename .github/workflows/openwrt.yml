@@ -19,7 +19,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build Openwrt Base Image
-        run: echo "123"
-        # run: "docker build -f container/openwrt.base.dockerfile -t gsxhnd/openwrt:22.03-ubuntu22.10-base ."
-      # - name: Push Base Image
-      #   run: docker push gsxhnd/openwrt:22.03-ubuntu22.10-base
+        run: "docker build -f container/openwrt.base.dockerfile -t gsxhnd/openwrt:22.03-ubuntu22.10-base ."
+      - name: Push Base Image
+        run: docker push gsxhnd/openwrt:22.03-ubuntu22.10-base
