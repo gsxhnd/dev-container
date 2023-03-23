@@ -5,6 +5,8 @@ RUN apt update && apt install -y curl zsh git sudo build-essential
 
 RUN useradd -c "Developer" -m -d /home/build -G sudo -s /usr/bin/zsh build
 RUN echo 'build ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+RUN echo 'root:root' | chpasswd
+RUN echo 'build:build' | chpasswd
 
 USER build
 RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

@@ -1,4 +1,4 @@
-FROM gsxhnd/dev-container:base-ubuntu
+FROM gsxhnd/dev-container:base
 
 USER build
 ENV PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"
