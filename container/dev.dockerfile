@@ -1,6 +1,6 @@
-FROM gsxhnd/dev-container:base-ubuntu
+FROM gsxhnd/dev-container:base
 
-USER dev
+USER build
 ENV PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"
 WORKDIR /workspace
 RUN brew install python@3.10 pipenv node yarn pnpm
