@@ -5,6 +5,8 @@ on:
     paths:
       - 'container/base.dev.dockerfile'
       - 'container/dev.dockerfile'
+      - 'container/deploy.dockerfile'
+
 jobs:
   Build:
     name: BuildDevConatiner
