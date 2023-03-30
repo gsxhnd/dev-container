@@ -24,16 +24,16 @@ jobs:
       - name: Build Base Dev Image
         run: |
           docker build -f container/base.dev.dockerfile -t gsxhnd/dev-container:base .
-          echo "gsxhnd/dev-container:base" >> ./scripts/images.txt
+          echo "gsxhnd/dev-container:base" >> images.txt
       - name: Build Dev Image
         run: |
           docker build -f container/dev.dockerfile -t gsxhnd/dev-container:all .
-          echo "gsxhnd/dev-container:all" >> ./scripts/images.txt
+          echo "gsxhnd/dev-container:all" >> images.txt
       - name: Build Deploy Image
         run: |
           docker build -f container/deploy.dockerfile -t gsxhnd/dev-container:deploy .
-          echo "gsxhnd/dev-container:deploy" >> ./scripts/images.txt
+          echo "gsxhnd/dev-container:deploy" >> images.txt
       - name: Push Image
         run: |
-          chmod +x ./scripts/push_images.sh
-          ./scripts/push_images.sh
+          chmod +x push_images.sh
+          ./push_images.sh
