@@ -17,5 +17,5 @@ RUN chmod +x /usr/local/bin/helm
 RUN rm -rvf helm-${HELM_VERSION}-linux-amd64.tar.gz
 
 RUN kind --version
-RUN kubectl --version
+RUN kubectl version
 RUN helm --version
