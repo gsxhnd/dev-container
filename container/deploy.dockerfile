@@ -1,4 +1,6 @@
+FROM docker:23.0.1-cli-alpine3.17 as cli
 FROM ubuntu:22.10
+COPY --from=cli /usr/local/bin/docker /usr/local/bin/docker
 
 RUN apt update && apt install -y curl wget
 ARG KIND_VERSION=v0.17.0
