@@ -3,6 +3,7 @@ name: BuildDevImage
 on:
   push:
     paths:
+      - 'Makefile'
       - 'container/dev.base.dockerfile'
       - 'container/dev.cli.dockerfile'
       - 'container/dev.full.dockerfile'
