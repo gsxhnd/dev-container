@@ -4,4 +4,4 @@ metadata:
   name: config
   namespace: devops
 data:
-{{ (.Files.Glob "etc/*").AsConfig | indent 2 }}default
+{{ (.Files.Glob "etc/*").AsConfig | indent 2 }}
