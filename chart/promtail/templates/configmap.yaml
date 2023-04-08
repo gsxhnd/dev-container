@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config
+  namespace: devops
+data:
+{{ (.Files.Glob "etc/*").AsConfig | indent 2 }}default

@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: promtail-daemonset
+  namespace: devops
+  labels:
+    app: promtail-daemonset
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: promtail-daemon
+  template:
+    metadata:
+      labels:
+        app: promtail-daemon
+    spec:
+      serviceAccountName: "promtail"
+      containers:
+        - name: promtail-container
+          image: grafana/promtail:2.7.4-amd64
+          ports:
+            - containerPort: 9080
+          args: ["-config.file=/etc/promtail/promtail.config.yaml"]
+          env:
+            - name: HOSTNAME
+              valueFrom:
+                fieldRef:
+                  appVersion: v1
+                  fieldPath: spec.nodeName
+          volumeMounts:
+            - name: config
+              mountPath: /etc/promtail/
+            - name: pods
+              mountPath: /var/log/pods
+              readOnly: true
+          imagePullPolicy: IfNotPresent
+      volumes:
+        - name: config
+          configMap:
+            name: config
+        - name: pods
+          hostPath:
+            path: /var/log/pods
+      restartPolicy: Always
