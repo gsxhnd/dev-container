@@ -32,3 +32,8 @@ git-src
 .cproject
 .ccache
 .vscode*
+### normal
+.idea/
+.vscode/
+istio/
+.DS_Store

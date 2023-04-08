@@ -1,0 +1,22 @@
+version: "3"
+
+networks:
+  gsxhnd.xyz:
+    external:
+      name: gsxhnd.xyz
+
+services:
+  pg-master:
+    container_name: pg-master
+    image: postgres:13.2-alpine
+    environment:
+      - POSTGRES_PASSWORD=12345678
+      - TZ=Asia/Shanghai
+    ports:
+      - 5000:5432
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    networks:
+      gsxhnd.xyz:
+        aliases:
+          - pg-master.gsxhnd.xyz

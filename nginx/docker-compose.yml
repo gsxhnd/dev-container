@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  nginx:
+    container_name: nginx-proxy
+    restart: always
+    image: nginx:1.23.3
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+      - ./log:/var/log/nginx
+      - ./www:/var/www
+      - ./ssl:/etc/nginx/ssl

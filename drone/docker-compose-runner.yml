@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  drone:
+    image: drone/drone-runner-docker:1.8.2
+    container_name: runner
+    environment:
+      - DRONE_RPC_PROTO=http
+      - DRONE_RPC_HOST=[]
+      - DRONE_RPC_SECRET=[]
+      - DRONE_RUNNER_CAPACITY=2
+      - DRONE_RUNNER_NAME=runner-01
+    restart: always
+    network_mode: host
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

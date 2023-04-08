@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  mariadb:
+    container_name: mariadb
+    image: mariadb:10.8.2
+    restart: always
+    privileged: false
+    ports:
+      - 3306:3306
+    environment:
+      TIME_ZONE: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+      # - ./mysql/conf.d/my.cnf:/etc/my.cnf
+      - ./data/:/var/lib/mysql

@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  frps:
+    container_name: frps
+    image: gsxhnd/frps:0.44.0
+    restart: always
+    network_mode: host
+    command: "./frps -c ./conf/frps.ini"
+    environment:
+      TIME_ZONE: Asia/Shanghai
+    volumes:
+      - ./logs:/app/logs
