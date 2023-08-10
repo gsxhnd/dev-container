@@ -11,10 +11,11 @@ RUN echo 'devpod:devpod' | chpasswd
 
 
 USER devpod
+RUN git clone --depth=1 https://github.com/Homebrew/install.git
+RUN cd install && NONINTERACTIVE=1 ./install.sh
+
 RUN git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 RUN cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-RUN NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
 RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && brew --version
 
 ENTRYPOINT [ "/bin/zsh" ]
