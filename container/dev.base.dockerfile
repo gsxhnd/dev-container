@@ -8,6 +8,7 @@ RUN echo 'build ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 RUN echo 'root:root' | chpasswd
 RUN echo 'devpod:devpod' | chpasswd
 RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+RUN ls -al /home/linuxbrew/.linuxbrew/Celler/
 
 
 USER devpod
@@ -18,5 +19,4 @@ RUN cd install && NONINTERACTIVE=1 ./install.sh
 # RUN git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 # RUN cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 # RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && brew --version
-RUN ls -al /home/linuxbrew/.linuxbrew/Celler/
 ENTRYPOINT [ "/bin/zsh" ]
