@@ -14,4 +14,7 @@ USER devpod
 RUN git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 RUN cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 
+RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+RUN brew --version
+
 ENTRYPOINT [ "/bin/zsh" ]
