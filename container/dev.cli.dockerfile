@@ -8,7 +8,7 @@ RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && \
     exa duf neofetch erdtree tree \
     bat jq ripgrep fzf \
     lazygit lazydocker onefetch joshuto \
-    httpie httpstate k6 \
+    httpie httpstat k6 \
     k9s helm kubernetes-cli
 COPY zshrc zshrc
 RUN cat zshrc > .zshrc
