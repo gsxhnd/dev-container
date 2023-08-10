@@ -8,8 +8,8 @@ tasks:
     dir: container
     cmds:
       - echo base
-      - docker build -f dev.base.dockerfile -t {{DOCKER_REPO}}:base .
-      - docker push {{DOCKER_REPO}}:base
+      - docker build -f dev.base.dockerfile -t {{.DOCKER_REPO}}:base .
+      - docker push {{.DOCKER_REPO}}:base
 
   build:
     deps: [base]
@@ -22,5 +22,5 @@ tasks:
   build-dev:
     cmds:
       - echo '{{.TAG}}'
-      - docker build -f dev.{{.TAG}}.dockerfile -t {{DOCKER_REPO}}:{{.TAG}} .
-      - docker push {{DOCKER_REPO}}:{{.TAG}}
+      - docker build -f dev.{{.TAG}}.dockerfile -t {{.DOCKER_REPO}}:{{.TAG}} .
+      - docker push {{.DOCKER_REPO}}:{{.TAG}}
