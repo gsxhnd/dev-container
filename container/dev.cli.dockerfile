@@ -2,16 +2,14 @@ FROM gsxhnd/dev-container:base
 
 USER devpod
 WORKDIR /home/devpod
-RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-RUN brew --version
-RUN brew install neovim starship
-RUN brew install bottom procs htop
-RUN brew install exa duf neofetch erdtre tree
-RUN brew install neovim bat jq riggrep fzf
-RUN brew install lazygit lazydocker onefetch joshuto
-RUN brew install mdbook pandoc
-RUN brew install httpie httpstate k6
-RUN brew install k9s helm kubernetes-cli kind
+RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && \
+    brew install neovim starship \
+    bottom procs htop \
+    exa duf neofetch erdtre tree \
+    bat jq riggrep fzf \
+    lazygit lazydocker onefetch joshuto \
+    httpie httpstate k6 \
+    k9s helm kubernetes-cli kind
 COPY zshrc zshrc
 RUN cat zshrc > .zshrc
 RUN rm zshrc
