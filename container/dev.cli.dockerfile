@@ -2,6 +2,7 @@ FROM gsxhnd/dev-container:base
 
 USER devpod
 WORKDIR /home/devpod
+RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 RUN brew --version
 RUN brew install neovim starship
 RUN brew install bottom procs htop

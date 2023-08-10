@@ -2,6 +2,7 @@ FROM gsxhnd/dev-container:cli
 
 USER devpod
 WORKDIR /home/devpod
+RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 RUN brew install llvm@12 conan cmake
 RUN brew install go go-task goreleaser
 RUN brew install protobuf protoc-gen-go protoc-gen-go-grpc
