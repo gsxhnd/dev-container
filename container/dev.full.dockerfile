@@ -3,7 +3,7 @@ FROM gsxhnd/dev-container:cli
 USER devpod
 WORKDIR /home/devpod
 RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && \
-    llvm@12 conan cmake && \
+    brew install llvm@12 conan cmake && \
     go go-task goreleaser && \
     protobuf protoc-gen-go protoc-gen-go-grpc && \
     python@3.10 pipenv && \
