@@ -2,6 +2,7 @@ FROM gsxhnd/dev-container:base
 
 USER devpod
 WORKDIR /home/devpod
+RUN brew --version
 RUN brew install neovim starship
 RUN brew install bottom procs htop
 RUN brew install exa duf neofetch erdtre tree

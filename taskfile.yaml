@@ -22,6 +22,5 @@ tasks:
   build-dev:
     dir: container
     cmds:
-      - echo '{{.TAG}}'
       - docker build -f dev.{{.TAG}}.dockerfile -t {{.DOCKER_REPO}}:{{.TAG}} .
       - docker push {{.DOCKER_REPO}}:{{.TAG}}
