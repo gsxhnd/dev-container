@@ -11,6 +11,7 @@ RUN echo 'devpod:devpod' | chpasswd
 
 
 USER devpod
+WORKDIR /home/devpod
 RUN git clone --depth=1 https://github.com/Homebrew/install.git
 RUN cd install && NONINTERACTIVE=1 ./install.sh
 
