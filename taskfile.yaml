@@ -1,0 +1,26 @@
+version: "3"
+
+vars:
+  DOCKER_REPO: gsxhnd/dev-container
+
+tasks:
+  base:
+    dir: container
+    cmds:
+      - echo base
+      - docker build -f dev.base.dockerfile -t {{DOCKER_REPO}}:base .
+      - docker push {{DOCKER_REPO}}:base
+
+  build:
+    deps: [base]
+    cmds:
+      - for: [cli, full]
+        task: build-dev
+        vars:
+          TAG: "{{.ITEM}}"
+
+  build-dev:
+    cmds:
+      - echo '{{.TAG}}'
+      - docker build -f dev.{{.TAG}}.dockerfile -t {{DOCKER_REPO}}:{{.TAG}} .
+      - docker push {{DOCKER_REPO}}:{{.TAG}}
