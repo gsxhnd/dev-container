@@ -15,6 +15,7 @@ RUN git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 RUN cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 
 RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+RUN /home/linuxbrew/.linuxbrew/bin/brew --version
 RUN brew --version
 
 ENTRYPOINT [ "/bin/zsh" ]
