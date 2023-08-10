@@ -1,7 +1,7 @@
 FROM gsxhnd/dev-container:cli
 
 USER devpod
-WORKDIR ~/workspace
+WORKDIR /home/devpod
 RUN brew install llvm@12 conan cmake
 RUN brew install go go-task goreleaser
 RUN brew install protobuf protoc-gen-go protoc-gen-go-grpc

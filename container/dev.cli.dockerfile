@@ -13,4 +13,5 @@ RUN brew install k9s helm kubernetes-cli kind
 COPY zshrc zshrc
 RUN cat zshrc > .zshrc
 RUN rm zshrc
+
 ENTRYPOINT [ "/bin/zsh" ]
