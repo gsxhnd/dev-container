@@ -3,25 +3,25 @@ LABEL authors="gsxhnd"
 
 # RUN DEBIAN_FRONTEND="noninteractive" apt-get update && apt-get -y install tzdata
 
-RUN apt-get update && apt-get -y install tzdata
+RUN apt update && apt -y install tzdata
+RUN apt update && apt install -y python python-dev
 
-RUN apt-get update \
-    && apt-get install -y build-essential \
-    gcc \
-    g++ \
-    gdb \
-    clang \
-    make \
-    ninja-build \
-    cmake \
-    autoconf \
-    automake \
-    libtool \
-    valgrind \
-    locales-all \
-    dos2unix \
-    rsync \
-    tar \
-    python \
-    python-dev \
-    && apt-get clean
+# RUN apt update
+# RUN apt install -y build-essential \
+#     gcc \
+#     g++ \
+#     gdb \
+#     clang \
+#     make \
+#     ninja-build \
+#     cmake \
+#     autoconf \
+#     automake \
+#     libtool \
+#     valgrind \
+#     locales-all \
+#     dos2unix \
+#     rsync \
+#     tar
+
+RUN apt clean
