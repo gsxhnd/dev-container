@@ -1,7 +1,9 @@
 FROM ubuntu:24.10
 LABEL authors="gsxhnd"
 
-RUN DEBIAN_FRONTEND="noninteractive" apt-get update && apt-get -y install tzdata
+# RUN DEBIAN_FRONTEND="noninteractive" apt-get update && apt-get -y install tzdata
+
+RUN apt-get update && apt-get -y install tzdata
 
 RUN apt-get update \
     && apt-get install -y build-essential \
