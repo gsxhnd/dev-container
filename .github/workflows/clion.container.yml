@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "container/clion.cpp.dockerfile"
+      - ".github/workflows/clion.container.yml"
 
 jobs:
   Build:
