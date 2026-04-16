@@ -1,0 +1,52 @@
+services:
+  traefik:
+    image: "traefik:v3.6"
+    container_name: "traefik"
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - demo
+    command:
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--providers.docker.network=demo"
+      - "--entryPoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./traefik:/etc/traefik"
+
+  whoami-blue:
+    image: "traefik/whoami"
+    container_name: "whoami-blue"
+    restart: unless-stopped
+    environment:
+      - WHOAMI_NAME=BLUE_VERSION
+      - WHOAMI_COLOR=blue
+    networks:
+      - demo
+    labels:
+      - "traefik.enable=false"
+      # - "traefik.http.routers.whoami.rule=Host(`whoami1.localhost`)"
+      # - "traefik.http.routers.whoami.entrypoints=web"
+
+  whoami-green:
+    image: "traefik/whoami"
+    container_name: "whoami-green"
+    restart: unless-stopped
+    environment:
+      - WHOAMI_NAME=GREEN_VERSION
+      - WHOAMI_COLOR=gree
+    networks:
+      - demo
+    labels:
+      - "traefik.enable=false"
+      # - "traefik.http.routers.whoami.rule=Host(`whoami1.localhost`)"
+      # - "traefik.http.routers.whoami.entrypoints=web"
+
+networks:
+  demo:
+    name: demo

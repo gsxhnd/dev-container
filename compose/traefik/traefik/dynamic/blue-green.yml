@@ -1,0 +1,42 @@
+http:
+  services:
+    # 定义两个版本的服务
+    app-blue:
+      loadBalancer:
+        servers:
+          - url: "http://whoami-blue:80"  # 蓝色版本
+    
+    app-green:
+      loadBalancer:
+        servers:
+          - url: "http://whoami-green:80"  # 绿色版本
+    
+    # 控制流量分配
+    app-traffic:
+      weighted:
+        services:
+          - name: app-blue
+            weight: 0  # 修改这个值：蓝色流量百分比
+          - name: app-green
+            weight: 100    # 修改这个值：绿色流量百分比
+  
+  routers:
+    app-route:
+      rule: "Host(`app.localhost`)"
+      entryPoints:
+        - web
+      service: app-traffic
+
+    # 添加一个直接访问蓝色版本的路由 (用于测试)
+    blue-only:
+      rule: "Host(`blue.localhost`)"
+      entryPoints:
+        - web
+      service: app-blue
+    
+    # 添加一个直接访问绿色版本的路由 (用于测试)
+    green-only:
+      rule: "Host(`green.localhost`)"
+      entryPoints:
+        - web
+      service: app-green
