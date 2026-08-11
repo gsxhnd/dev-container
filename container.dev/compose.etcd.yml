@@ -24,5 +24,5 @@ services:
       --initial-cluster etcd01=http://etcd01.newma.dev:2380
       -initial-cluster-state new
     # volumes:
-    #   - ./data:/etcd-data
-    # - "/data/config/etcd/ca-certificates/:/etc/ssl/certs"
+    #   - ./data/etcd-data:/etcd-data
+    # - "/data/etcd-data/config/etcd/ca-certificates/:/etc/ssl/certs"
