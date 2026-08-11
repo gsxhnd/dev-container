@@ -1,0 +1,13 @@
+services:
+  jaeger:
+    image: jaegertracing/jaeger:2.20.0
+    container_name: jaeger
+    ports:
+      - "16686:16686" # UI
+      - "4317:4317" # OTLP gRPC
+      - "4318:4318" # OTLP HTTP
+      - "5778:5778" # Agent configs
+      - "9411:9411" # Zipkin
+    # volumes:
+    #   - /path/to/local/config.yaml:/jaeger/config.yaml
+    # command: ["--config", "/jaeger/config.yaml"]
